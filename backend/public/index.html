@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encurtador de URLs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    input[type="url"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Encurtador de URLs</h1>
+  
+  <div class="form-group">
+    <label for="originalUrl">URL Original:</label>
+    <input type="url" id="originalUrl" placeholder="https://exemplo.com/pagina-muito-longa">
+  </div>
+  
+  <button id="shortenBtn">Encurtar</button>
+  
+  <div class="result" id="result">
+    <h3>URL Encurtada:</h3>
+    <p id="shortUrl"></p>
+    <p>Cliques: <span id="clicks">0</span></p>
+  </div>
+
+  <script>
+    document.getElementById('shortenBtn').addEventListener('click', async () => {
+      const originalUrl = document.getElementById('originalUrl').value;
+      
+      if (!originalUrl) {
+        alert('Por favor, insira uma URL válida');
+        return;
+      }
+      
+      try {
+        const response = await fetch('/api/urls', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ originalUrl })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+          document.getElementById('shortUrl').innerHTML = `<a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
+          document.getElementById('clicks').textContent = data.clicks || 0;
+          document.getElementById('result').style.display = 'block';
+        } else {
+          alert(`Erro: ${data.error}`);
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Ocorreu um erro ao encurtar a URL');
+      }
+    });
+  </script>
+</body>
+</html>
