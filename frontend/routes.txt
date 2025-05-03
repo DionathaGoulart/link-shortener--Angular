@@ -1,3 +1,0 @@
-/
-/outra-rota
-# exclua /lista daqui
