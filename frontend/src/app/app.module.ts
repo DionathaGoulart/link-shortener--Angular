@@ -1,30 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { ClipboardModule } from '@angular/cdk/clipboard';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { UrlShortenerComponent } from './components/url-shortener/url-shortener.component';
-import { UrlListComponent } from './components/url-list/url-list.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-];
+// Importe seus componentes
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UrlListComponent } from './components/url-list/url-list.component';
+import { UrlShortenerComponent } from './components/url-shortener/url-shortener.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
     UrlListComponent,
     UrlShortenerComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    ClipboardModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
