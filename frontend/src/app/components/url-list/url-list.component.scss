@@ -1,0 +1,45 @@
+@use "../../styles/variables" as vars;
+
+.card {
+  border: none;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$box-shadow;
+  overflow: hidden;
+  background: white;
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-title {
+    font-weight: 700;
+    color: vars.$primary-color;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Forms
+.form-control {
+  border: 2px solid vars.$gray-200;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  transition: vars.$transition-normal;
+
+  &:focus {
+    border-color: vars.$primary-color;
+    box-shadow: 0 0 0 0.2rem rgba(82, 113, 255, 0.25);
+  }
+}
+
+.input-group {
+  .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}

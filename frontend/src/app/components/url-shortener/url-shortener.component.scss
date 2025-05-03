@@ -1,0 +1,107 @@
+@use "../../styles/variables" as vars;
+
+.card {
+  border: none;
+  border-radius: vars.$border-radius;
+  box-shadow: vars.$box-shadow;
+  overflow: hidden;
+  background: white;
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-title {
+    font-weight: 700;
+    color: vars.$primary-color;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// URL Shortener
+.url-shortener {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+// Result Container
+.result-container {
+  margin-top: 2rem;
+}
+
+.alert-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-color: vars.$success-color;
+  color: vars.$success-color;
+  border-radius: vars.$border-radius;
+}
+
+.short-url-box {
+  background-color: rgba(76, 175, 80, 0.06);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  word-break: break-all;
+
+  a {
+    color: vars.$success-color;
+  }
+}
+
+// URL List
+.url-list-container {
+  margin: 2rem auto;
+  max-width: 1100px;
+}
+
+.empty-state {
+  padding: 3rem 1rem;
+
+  .empty-icon {
+    font-size: 3rem;
+    color: vars.$gray-400;
+  }
+}
+
+.table {
+  margin-bottom: 0;
+
+  th {
+    font-weight: 600;
+    color: vars.$gray-500;
+    border-top: none;
+  }
+
+  td {
+    vertical-align: middle;
+    padding: 1rem 0.75rem;
+  }
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+
+  &.bg-primary {
+    background: linear-gradient(135deg, vars.$primary-color 0%, vars.$secondary-color 100%) !important;
+  }
+}
+
+.original-url {
+  max-width: 300px;
+
+  a {
+    color: vars.$dark-color;
+    max-width: 100%;
+
+    &:hover {
+      color: vars.$primary-color;
+    }
+  }
+}
+
+.short-url {
+  font-weight: 600;
+  color: vars.$primary-color;
+}

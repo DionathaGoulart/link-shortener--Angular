@@ -1,0 +1,52 @@
+<div class="url-shortener">
+  <div class="card shadow-lg">
+    <div class="card-body p-4">
+      <h3 class="card-title mb-4 text-center">Encurte seu link <i class="bi bi-scissors ms-2"></i></h3>
+      <form [formGroup]="shortenerForm" (ngSubmit)="onSubmit()" class="url-form">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            placeholder="Cole sua URL aqui (ex: https://exemplo.com.br)"
+            formControlName="originalUrl"
+            [class.is-invalid]="shortenerForm.get('originalUrl')?.invalid && shortenerForm.get('originalUrl')?.touched"
+          >
+          <button
+            class="btn btn-primary btn-lg"
+            type="submit"
+            [disabled]="shortenerForm.invalid || isLoading"
+          >
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            Encurtar
+          </button>
+        </div>
+        <div *ngIf="shortenerForm.get('originalUrl')?.invalid && shortenerForm.get('originalUrl')?.touched" class="invalid-feedback d-block mb-3">
+          Por favor, insira uma URL válida começando com http:// ou https://
+        </div>
+        <div *ngIf="error" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+          {{ error }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="error = ''"></button>
+        </div>
+      </form>
+
+      <!-- Resultado -->
+      <div *ngIf="isSuccess && newUrl" class="result-container mt-4 animate-fade-in">
+        <div class="alert alert-success">
+          <h5 class="alert-heading">Link encurtado com sucesso!</h5>
+          <div class="d-flex align-items-center mt-3">
+            <div class="short-url-box flex-grow-1">
+              <a [href]="newUrl.shortUrl" target="_blank">{{ newUrl.shortUrl }}</a>
+            </div>
+            <button class="btn btn-sm btn-outline-success ms-2" (click)="copyToClipboard(newUrl.shortUrl)">
+              <i class="bi" [ngClass]="copied ? 'bi-check-lg' : 'bi-clipboard'"></i>
+              {{ copied ? 'Copiado!' : 'Copiar' }}
+            </button>
+          </div>
+          <div class="mt-3 original-url text-muted">
+            <small>URL original: {{ newUrl.originalUrl }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

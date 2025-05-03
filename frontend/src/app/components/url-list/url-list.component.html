@@ -1,0 +1,89 @@
+<div class="url-list-container">
+  <div class="card shadow-lg">
+    <div class="card-body p-4">
+      <h3 class="card-title mb-4">Seus links encurtados <i class="bi bi-link-45deg ms-2"></i></h3>
+
+      <!-- Estado de carregamento -->
+      <div *ngIf="isLoading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+        <p class="mt-3">Carregando seus links...</p>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div *ngIf="error" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+
+      <!-- Mensagem de sucesso ao excluir -->
+      <div *ngIf="isDeleteSuccess" class="alert alert-success alert-dismissible fade show animate-fade-in" role="alert">
+        {{ deleteMessage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="isDeleteSuccess = false"></button>
+      </div>
+
+      <!-- Lista vazia -->
+      <div *ngIf="!isLoading && urls.length === 0" class="empty-state text-center py-5">
+        <div class="empty-icon mb-3">
+          <i class="bi bi-link-45deg"></i>
+        </div>
+        <h5>Nenhum link encurtado ainda</h5>
+        <p class="text-muted">Encurte seu primeiro link e ele aparecerá aqui.</p>
+        <a routerLink="/" class="btn btn-primary mt-3">
+          <i class="bi bi-scissors me-2"></i>Encurtar um link
+        </a>
+      </div>
+
+      <!-- Lista de URLs -->
+      <div *ngIf="!isLoading && urls.length > 0" class="url-list animate-fade-in">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead>
+              <tr>
+                <th>Link Original</th>
+                <th>Link Curto</th>
+                <th class="text-center">Cliques</th>
+                <th>Criado em</th>
+                <th class="text-center">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let url of urls">
+                <td class="original-url">
+                  <a [href]="url.originalUrl" target="_blank" class="text-truncate d-inline-block" [title]="url.originalUrl">
+                    {{ url.originalUrl }}
+                  </a>
+                </td>
+                <td>
+                  <a [href]="url.shortUrl" target="_blank" class="short-url">
+                    {{ url.shortUrl }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <span class="badge bg-primary">{{ url.clicks }}</span>
+                </td>
+                <td>{{ formatDate(url.date) }}</td>
+                <td class="text-center">
+                  <div class="btn-group">
+                    <button
+                      class="btn btn-sm btn-outline-primary"
+                      (click)="copyToClipboard(url.shortUrl, url._id!)"
+                      [ngClass]="{'btn-success': copiedId === url._id}"
+                    >
+                      <i class="bi" [ngClass]="copiedId === url._id ? 'bi-check-lg' : 'bi-clipboard'"></i>
+                      {{ copiedId === url._id ? 'Copiado!' : 'Copiar' }}
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteUrl(url._id!)">
+                      <i class="bi bi-trash"></i>
+                      Excluir
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
