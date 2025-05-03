@@ -37,3 +37,5 @@ frontend/.angular/
 
 # Backend specific
 backend/.env
+# Ignora qualquer node_modules
+**/node_modules/
