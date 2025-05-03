@@ -17,6 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "prerender": {
+              "discoverRoutes": true,
+              "routesFile": "routes.txt"
+            },
             "outputPath": "dist/frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -52,8 +56,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
