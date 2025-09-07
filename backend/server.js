@@ -17,6 +17,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Rota de health check para UptimeRobot
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    message: 'Servidor funcionando normalmente'
+  });
+});
+
 // Rotas
 app.use('/api/urls', require('./routes/urls'));
 
@@ -24,12 +34,10 @@ app.use('/api/urls', require('./routes/urls'));
 app.get('/:code', async (req, res) => {
   try {
     const url = await require('./models/url').findOne({ urlCode: req.params.code });
-
     if (url) {
       // Incrementar contador de cliques
       url.clicks++;
       await url.save();
-
       return res.redirect(url.originalUrl);
     } else {
       return res.status(404).json({ error: 'URL não encontrada' });
