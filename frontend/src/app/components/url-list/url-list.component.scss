@@ -43,3 +43,19 @@
     border-bottom-left-radius: 0;
   }
 }
+
+
+.original-url a {
+  display: inline-block;       // necessário para text-overflow
+  max-width: 250px;            // largura máxima antes de truncar
+  white-space: nowrap;          // não quebra a linha
+  overflow: hidden;             // esconde o excesso
+  text-overflow: ellipsis;      // coloca "..."
+  vertical-align: middle;       // opcional, deixa alinhado
+  color: vars.$primary-color;   // mantém a cor do link
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline; // efeito hover opcional
+  }
+}
