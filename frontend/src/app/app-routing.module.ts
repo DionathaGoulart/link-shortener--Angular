@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'lista', component: UrlListComponent },
 
   // Rota de fallback - redireciona para a página inicial se nenhuma rota corresponder
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
