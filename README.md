@@ -4,7 +4,6 @@
 
 **Plataforma moderna de encurtamento de URLs com interface intuitiva e analytics em tempo real**
 
-[![CI/CD](https://img.shields.io/badge/CI/CD-GitHub%20Actions-2088FF?style=flat-square&logo=githubactions)](https://github.com/DionathaGoulart/link-shortener--Angular/actions)
 [![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=flat-square)](LICENSE)
 [![Angular](https://img.shields.io/badge/Angular-19.2.0-DD0031?style=flat-square&logo=angular)](https://angular.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
@@ -131,13 +130,6 @@ link-shortener--Angular/
 - **SCSS 1.77.6** - Pré-processador CSS
 - **TypeScript 5.7.2** - Compilador TypeScript
 
-### Deploy e CI/CD
-
-- **Vercel** - Deploy automático do frontend
-- **Render** - Deploy automático do backend
-- **GitHub Actions** - CI/CD automatizado
-- **MongoDB Atlas** - Banco de dados em nuvem
-
 ### Integrações
 
 - **Angular Router 19.2.0** - Roteamento SPA
@@ -194,90 +186,6 @@ ng lint              # Executa ESLint para verificar código
 
 ---
 
-## 🧪 CI/CD e Qualidade
-
-### GitHub Actions
-
-O projeto possui workflow automatizado de CI/CD:
-
-- **Build & Test** - Verifica se o projeto compila corretamente
-- **Lint Check** - Valida qualidade do código com ESLint
-- **Deploy Automático** - Deploy na Vercel e Render em caso de sucesso
-- **Health Check** - Monitoramento de status do servidor
-
-### Ferramentas de Qualidade
-
-- **ESLint** - Análise estática de código com regras customizadas
-- **Prettier** - Formatação automática e consistente
-- **TypeScript** - Verificação de tipos em tempo de compilação
-- **Angular CLI** - Linting e formatação automática
-
----
-
-## 🚀 Deploy
-
-### Deploy Automático (Vercel + Render)
-
-O projeto está configurado para deploy automático:
-
-- **Frontend**: Deploy automático na Vercel via GitHub Actions
-- **Backend**: Deploy automático na Render via GitHub Actions
-- **URL Frontend**: `https://link-shortener-angular.vercel.app`
-- **URL Backend**: `https://link-shortener-72f5.onrender.com`
-
-### Configuração Vercel
-
-- **Framework**: Angular
-- **Runtime**: Node.js 18
-- **Build Command**: `npm run build`
-- **Output Directory**: `dist`
-- **Install Command**: `npm install`
-
-### Configuração Render
-
-- **Runtime**: Node.js 18
-- **Build Command**: `npm install`
-- **Start Command**: `npm start`
-- **Environment**: Production
-
-### Configuração Automática
-
-1. Conecte seu repositório no Vercel Dashboard
-2. Configure as variáveis de ambiente necessárias
-3. O deploy acontece automaticamente via GitHub Actions
-
-### Workflows GitHub Actions
-
-O projeto possui workflow automatizado:
-
-- **CI/CD** (`ci.yml`) - Build, testes, lint e deploy automático
-
-### Deploy Manual
-
-```bash
-# Build para produção
-ng build --configuration production
-
-# Deploy via Vercel CLI
-vercel --prod
-```
-
----
-
-## 📊 Performance
-
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-- **Total Blocking Time**: < 300ms
-- **Speed Index**: < 3.0s
-- **Performance Score**: > 90
-- **Accessibility Score**: > 95
-- **Best Practices Score**: > 90
-- **SEO Score**: > 90
-
----
-
 ## 🔧 Configuração
 
 ### Variáveis de Ambiente
@@ -315,16 +223,6 @@ O LinkSpace é totalmente responsivo e otimizado para:
 - **📱 Tablet** (768px - 1024px)
 - **💻 Desktop** (1024px - 1440px)
 - **🖥️ Large Desktop** (1440px+)
-
----
-
-## ♿ Acessibilidade
-
-- **Navegação por Teclado** - Suporte completo para navegação sem mouse
-- **Screen Readers** - Labels e descrições adequadas para leitores de tela
-- **Contraste de Cores** - Paleta de cores com contraste adequado (WCAG AA)
-- **Foco Visual** - Indicadores claros de foco em elementos interativos
-- **Semântica HTML** - Estrutura semântica correta para melhor compreensão
 
 ---
 
