@@ -1,277 +1,79 @@
 <div align="center">
 
-# 🔗 LinkSpace
+# LINKSPACE
+### URL SHORTENER
 
-**Plataforma moderna de encurtamento de URLs com interface intuitiva e analytics em tempo real**
+![Angular](https://img.shields.io/badge/angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Node.js](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red?style=flat-square)](LICENSE)
-[![Angular](https://img.shields.io/badge/Angular-19.2.0-DD0031?style=flat-square&logo=angular)](https://angular.io/)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-7.8.7-47A248?style=flat-square&logo=mongodb)](https://mongodb.com/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.5-7952B3?style=flat-square&logo=bootstrap)](https://getbootstrap.com/)
+<br />
+
+**Plataforma moderna de encurtamento de URLs com analytics em tempo real.**
+**Interface intuitiva e dashboard completo para gerenciamento de links.**
+
+[Getting Started](#-getting-started) • [License](#-license)
 
 </div>
 
 ---
 
-## 📸 Preview
+## 🏗️ Architecture
+
+Fullstack application with **Angular** frontend and **Node.js/Express** backend.
+
+```mermaid
+graph TD;
+    User-->Frontend[Angular App];
+    Frontend-->Backend[Express API];
+    Backend-->DB[(MongoDB)];
+```
+
+---
+
+## 🚀 Applications
 
 <div align="center">
 
-<img src="imgs/Home.png" alt="Desktop Preview" width="800"/>
-<p><em>Interface principal para encurtamento de URLs com design moderno</em></p>
-
-<img src="imgs/Dashboard.png" alt="Mobile Preview" width="400"/>
-<p><em>Dashboard responsivo com lista de links e analytics em tempo real</em></p>
+| Application | Description | Tech Stack |
+|:-----------:|:----------- |:---------- |
+| **Frontend** | User dashboard and link management. | `Angular` `Bootstrap` `TypeScript` |
+| **Backend** | API for link generation and analytics. | `Node.js` `Express` `MongoDB` |
 
 </div>
 
 ---
 
-## ✨ Funcionalidades
+## 🛠️ Getting Started
 
-### 🎯 Principais Características
+### Prerequisites
 
-- **🔗 Encurtamento de URLs** - Transforme links longos em URLs curtas e memoráveis
-- **📊 Analytics em Tempo Real** - Acompanhe cliques e estatísticas de cada link
-- **📋 Gerenciamento de Links** - Visualize, copie e exclua seus links encurtados
-- **📱 Totalmente Responsivo** - Otimizado para todos os dispositivos
-- **⚡ Performance Otimizada** - Carregamento rápido com Angular e otimizações avançadas
-- **🎨 Design Moderno** - Interface limpa e intuitiva com Bootstrap 5
-- **🔒 Validação de URLs** - Verificação automática de URLs válidas
-- **📋 Cópia Rápida** - Botão para copiar links com um clique
+*   **Node.js 18+**
+*   **MongoDB**
 
-### 🛠️ Funcionalidades Técnicas
-
-- **🏗️ Arquitetura Modular** - Estrutura organizada com separação de responsabilidades
-- **🎯 TypeScript Completo** - Tipagem forte em toda a aplicação
-- **🔄 API RESTful** - Endpoints organizados e documentados
-- **🌐 CORS Configurado** - Comunicação segura entre frontend e backend
-- **⚡ Geração de IDs Únicos** - Algoritmo ShortID para códigos únicos
-- **🧪 CI/CD Automatizado** - Deploy automático com GitHub Actions
-
----
-
-## 🏗️ Arquitetura do Projeto
-
-```
-link-shortener--Angular/
-├── 📁 backend/              # API Node.js + Express
-│   ├── config/
-│   │   └── db.js           # Configuração MongoDB
-│   ├── models/
-│   │   └── url.js          # Modelo de dados URL
-│   ├── routes/
-│   │   └── urls.js         # Rotas da API
-│   ├── public/
-│   │   └── index.html      # Página estática
-│   ├── package.json        # Dependências backend
-│   └── server.js           # Servidor principal
-├── 📁 frontend/             # Aplicação Angular
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── components/ # Componentes Angular
-│   │   │   ├── models/     # Interfaces TypeScript
-│   │   │   ├── services/   # Serviços HTTP
-│   │   │   └── styles/     # Estilos SCSS
-│   │   ├── environments/   # Configurações de ambiente
-│   │   └── assets/         # Recursos estáticos
-│   ├── angular.json        # Configuração Angular
-│   ├── package.json        # Dependências frontend
-│   └── vercel.json         # Configuração deploy
-└── 📁 imgs/                # Screenshots do projeto
-```
-
----
-
-## 📄 Páginas e Seções
-
-### 🏠 Página Principal
-
-- **Encurtador de URLs** - Formulário para inserir e encurtar links
-- **Validação em Tempo Real** - Verificação de URLs válidas
-- **Resultado Instantâneo** - Exibição da URL encurtada
-- **Cópia Rápida** - Botão para copiar o link gerado
-
-### 📊 Dashboard de Links
-
-- **Lista Completa** - Visualização de todos os links encurtados
-- **Estatísticas** - Contador de cliques por link
-- **Gerenciamento** - Ações de copiar e excluir links
-- **Filtros** - Ordenação por data de criação
-- **Estado Vazio** - Interface amigável quando não há links
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-### Frontend Principal
-
-- **Angular 19.2.0** - Framework principal para SPA
-- **TypeScript 5.7.2** - Superset JavaScript com tipagem estática
-- **Bootstrap 5.3.5** - Framework CSS utility-first
-- **Bootstrap Icons 1.11.3** - Ícones vetoriais
-- **Angular CDK 19.2.14** - Componentes e utilitários
-- **RxJS 7.8.0** - Programação reativa
-
-### Backend e Banco de Dados
-
-- **Node.js 18+** - Runtime JavaScript
-- **Express 4.21.2** - Framework web minimalista
-- **MongoDB 7.8.7** - Banco de dados NoSQL
-- **Mongoose 7.8.7** - ODM para MongoDB
-- **ShortID 2.2.17** - Geração de IDs únicos
-- **Valid-URL 1.0.9** - Validação de URLs
-
-### Ferramentas de Desenvolvimento
-
-- **Angular CLI 19.2.10** - Ferramentas de linha de comando
-- **Nodemon 3.0.1** - Auto-reload para desenvolvimento
-- **SCSS 1.77.6** - Pré-processador CSS
-- **TypeScript 5.7.2** - Compilador TypeScript
-
-### Integrações
-
-- **Angular Router 19.2.0** - Roteamento SPA
-- **Angular Forms 19.2.0** - Formulários reativos
-- **Angular HTTP Client** - Comunicação com API
-- **Angular CDK Clipboard** - Funcionalidade de cópia
-
----
-
-## 🚀 Como Executar
-
-### Pré-requisitos
-
-- Node.js 18+ instalado
-- MongoDB (local ou Atlas)
-- Git para clonagem do repositório
-
-### Instalação
+### Installation
 
 ```bash
-# Clone o repositório
+# 1. Clone the repository
 git clone https://github.com/DionathaGoulart/link-shortener--Angular.git
 
-# Entre no diretório
-cd link-shortener--Angular
-
-# Instale as dependências do backend
+# 2. Setup Backend
 cd backend
 npm install
+npm start
 
-# Instale as dependências do frontend
+# 3. Setup Frontend (in a new terminal)
 cd ../frontend
 npm install
-
-# Execute em modo desenvolvimento
-npm run start
-```
-
-### Scripts Disponíveis
-
-```bash
-# Desenvolvimento
-npm run dev          # Inicia servidor backend com nodemon
-npm start            # Inicia servidor backend em produção
-ng serve             # Inicia servidor frontend de desenvolvimento
-
-# Build e Deploy
-ng build             # Gera build otimizado para produção
-ng test              # Executa testes unitários
-
-# Qualidade de Código
-ng lint              # Executa ESLint para verificar código
+npm start
 ```
 
 ---
 
-## 🔧 Configuração
+## 📄 License
 
-### Variáveis de Ambiente
+This project is proprietary and confidential.
 
-Crie um arquivo `.env` na pasta `backend`:
-
-```env
-# MongoDB
-MONGO_URI=mongodb://localhost:27017/urlshortener
-# ou para MongoDB Atlas:
-# MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/urlshortener
-
-# Servidor
-PORT=5000
-BASE_URL=http://localhost:5000
-# ou para produção:
-# BASE_URL=https://link-shortener-72f5.onrender.com
-```
-
-### Personalização
-
-- **Cores**: Edite `src/styles/_variables.scss`
-- **Logo**: Substitua arquivos em `src/assets/`
-- **Favicon**: Configure em `public/favicon.ico`
-- **Título**: Modifique em `src/app/app.component.ts`
-- **API URL**: Configure em `src/environments/`
-
----
-
-## 📱 Responsividade
-
-O LinkSpace é totalmente responsivo e otimizado para:
-
-- **📱 Mobile** (320px - 768px)
-- **📱 Tablet** (768px - 1024px)
-- **💻 Desktop** (1024px - 1440px)
-- **🖥️ Large Desktop** (1440px+)
-
----
-
-## 📄 Licença
-
-**⚠️ ATENÇÃO: Este projeto é de uso exclusivo e pessoal.**
-
-### Direitos Reservados
-
-Este software e sua documentação são propriedade exclusiva do autor e estão protegidos por direitos autorais. É **expressamente proibido**:
-
-- ❌ **Copiar** o código fonte
-- ❌ **Modificar** sem autorização
-- ❌ **Distribuir** o software
-- ❌ **Usar** para fins comerciais
-- ❌ **Criar trabalhos derivados**
-- ❌ **Fazer engenharia reversa**
-
-### Uso Permitido
-
-- ✅ **Visualizar** o código para fins educacionais
-- ✅ **Estudar** a implementação para aprendizado
-- ✅ **Inspirar-se** nas ideias e conceitos
-- ✅ **Fazer fork** apenas para estudo pessoal
-
-### Consequências
-
-A violação desta licença resultará em:
-
-- Ação legal imediata
-- Remoção do conteúdo infrator
-- Danos e prejuízos conforme a lei
-
-**© 2025 Dionatha Goulart. Todos os direitos reservados.**
-
----
-
-## 📞 Contato
-
-**Desenvolvedor**: Dionatha Goulart  
-**Email**: dionatha.work@gmail.com  
-**Portfolio**: https://dionatha.com.br/  
-**GitHub**: https://github.com/DionathaGoulart  
-**Linkedin**: https://www.linkedin.com/in/dionathagoulart/
-
----
-
-<div align="center">
-
-**Feito by Dionatha Goulart**
-
-</div>
+**Copyright © 2026 Dionatha Goulart.**
+All Rights Reserved.
